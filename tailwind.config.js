@@ -35,7 +35,7 @@ module.exports = {
       colors: {
         tintblue: "#1C1E53",
         darkblue: "#282938",
-        royalbue: "#2405F2",
+        royalblue: "#2405F2",
         yellow: "#FCD980",
         grey: "#F4F6FC",
         accent: "#EEF4FA",

@@ -38,7 +38,7 @@ export default function Hero() {
         </div>
         <div className="lg:w-[45%] md:w-1/2 text-end">
           <Image
-            src="/images/illustration.png"
+            src="/images/illustration.svg"
             className="md:ml-auto mx-auto w-full h-auto max-w-md md:max-w-none md:min-w-full md:flex-shrink-0"
             alt="illustration"
             width={638}
