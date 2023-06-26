@@ -12,7 +12,7 @@ const Testimonials: React.FC = () => {
   const nextRef = useRef(null);
   return (
     <div className="bg-grey/50">
-      <div className="container py-12 lg:py-32 px-4 lg:px-0 flex flex-col gap-12 lg:gap-0 lg:flex-row">
+      <div className="container py-16 lg:py-32 px-4 lg:px-0 flex flex-col gap-12 lg:gap-0 lg:flex-row">
         <div className="lg:w-[30%] flex flex-col text-center md:text-start items-center gap-4">
           <h1 className="text-[32px] lg:text-[38px] font-semibold text-darkblue">
             What our clients say about us

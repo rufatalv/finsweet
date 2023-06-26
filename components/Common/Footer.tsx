@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="flex flex-col">
       <div id="up" className="bg-tintblue pt-8 md:pt-12 lg:pt-24">
-        <div className="container flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-36">
+        <div className="container flex flex-col md:flex-row sm:gap-8 md:gap-8 lg:gap-36">
           <div className="flex flex-col lg:max-w-lg w-full justify-between">
             <div
               id="up"
@@ -26,17 +26,17 @@ export default function Footer() {
               id="down"
               className="bg-yellow px-4 lg:px-0 lg:pl-8 py-4 flex flex-col sm:flex-row gap-7"
             >
-              <div className="flex flex-col text-darkblue font-medium text-lg">
+              <div className="flex flex-col text-darkblue font-medium text-base lg:text-lg">
                 Email me at
-                <p className="text-base font-normal">
+                <p className="text-sm lg:text-base font-normal">
                   <Link href={"mailto:contact@website.com"}>
                     contact@website.com
                   </Link>
                 </p>
               </div>
-              <div className="flex flex-col text-darkblue font-medium text-lg">
+              <div className="flex flex-col text-darkblue font-medium text-base lg:text-lg">
                 Call us
-                <p className="text-base font-normal">
+                <p className="text-sm lg:text-base font-normal">
                   <Link href={"tel:0927627728525"}>0927 6277 28525</Link>
                 </p>
               </div>
