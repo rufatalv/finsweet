@@ -3,7 +3,7 @@ import { poppins } from "./_app";
 
 export default function Document() {
   return (
-    <Html lang="en" className={poppins.className}>
+    <Html lang="en" className={`${poppins.className} scroll-smooth`}>
       <Head />
       <body>
         <Main />

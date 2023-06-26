@@ -1,15 +1,30 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LiaBarsSolid } from "react-icons/lia";
 import { HiXMark } from "react-icons/hi2";
 import Button from "./Button";
 
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
-
+  const [scroll, setScroll] = useState(false);
   const router = useRouter();
 
+  useEffect(() => {
+    function handleScroll() {
+      if (window.scrollY >= 50) {
+        setScroll(true);
+      } else {
+        setScroll(false);
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const handleNavOpen = () => {
     setIsNavOpen(!isNavOpen);
   };
@@ -17,17 +32,17 @@ export default function Header() {
     <div className="text-white bg-tintblue relative z-10 select-none">
       <div
         className={`container px-4 lg:px-0 py-4 flex items-center ${
-          isNavOpen ? "fixed md:static bg-tintblue" : ""
+          isNavOpen ? "bg-tintblue" : ""
         } justify-between`}
       >
         <div>
           <img src="/images/logo.svg" alt="logo" />
         </div>
         <ul
-          className={`flex flex-col md:flex-row gap-4 text-textgrey lg:gap-8 fixed lg:ml-auto lg:mr-12 md:static left-0 top-0 md:left-auto md:top-auto shadow-2xl md:shadow-none h-screen md:h-auto w-1/2 md:w-auto bg-tintblue md:bg-transparent p-5 pt-24 md:p-0 text-2xl md:text-base transition-transform duration-700 ${
+          className={`flex flex-col md:flex-row gap-4 text-textgrey lg:gap-8 fixed lg:ml-auto lg:mr-12 md:static text-right md:text-start right-0 top-0 md:left-auto md:top-auto shadow-2xl md:shadow-none h-screen md:h-auto w-1/2 md:w-auto bg-tintblue md:bg-transparent p-5 pt-24 md:p-0 text-2xl md:text-base transition-transform duration-700 ${
             isNavOpen
-              ? "-translate-x-0 md:-translate-x-0"
-              : "-translate-x-full md:-translate-x-0"
+              ? "translate-x-0 md:translate-x-0"
+              : "translate-x-full md:translate-x-0"
           }`}
         >
           <li>
@@ -91,7 +106,10 @@ export default function Header() {
             </Link>
           </li>
         </ul>
-        <div onClick={handleNavOpen} className="cursor-pointer md:hidden">
+        <div
+          onClick={handleNavOpen}
+          className="cursor-pointer relative z-10 md:hidden"
+        >
           {isNavOpen ? (
             <HiXMark color="#fff" size={32} />
           ) : (

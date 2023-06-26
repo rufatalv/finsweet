@@ -13,7 +13,7 @@ const Testimonials: React.FC = () => {
   return (
     <div className="bg-grey/50">
       <div className="container py-12 lg:py-32 px-4 lg:px-0 flex flex-col gap-12 lg:gap-0 lg:flex-row">
-        <div className="lg:w-[30%] flex flex-col items-center gap-4">
+        <div className="lg:w-[30%] flex flex-col text-center md:text-start items-center gap-4">
           <h1 className="text-[32px] lg:text-[38px] font-semibold text-darkblue">
             What our clients say about us
           </h1>
@@ -35,13 +35,13 @@ const Testimonials: React.FC = () => {
           >
             <SwiperSlide>
               <div>
-                <h1 className="text-2xl md:text-[32px] lg:leading-[48px] font-semibold text-darkblue">
+                <h1 className="text-xl sm:text-2xl md:text-[32px] text-center md:text-start lg:leading-[48px] font-semibold text-darkblue">
                   &#34;The best agency we’ve worked with so far. They understand
                   our product and are able to add new features with a great
                   focus.&#34;
                 </h1>
-                <div className="flex mt-14">
-                  <div className="flex gap-2.5">
+                <div className="flex mt-8 md:mt-14">
+                  <div className="flex gap-2 md:gap-2.5">
                     <div className="w-[52px] h-[52px] rounded-full overflow-hidden">
                       <Image
                         src={"/images/avatar.png"}
@@ -65,13 +65,13 @@ const Testimonials: React.FC = () => {
             </SwiperSlide>
             <SwiperSlide>
               <div>
-                <h1 className="text-2xl md:text-[32px] lg:leading-[48px] font-semibold text-darkblue">
+                <h1 className="text-xl sm:text-2xl md:text-[32px] text-center md:text-start lg:leading-[48px] font-semibold text-darkblue">
                   &#34;The best agency we’ve worked with so far. They understand
                   our product and are able to add new features with a great
                   focus.&#34;
                 </h1>
-                <div className="flex mt-14">
-                  <div className="flex gap-2.5">
+                <div className="flex mt-8 md:mt-14">
+                  <div className="flex gap-2 md:gap-2.5">
                     <div className="w-[52px] h-[52px] rounded-full overflow-hidden">
                       <Image
                         src={"/images/avatar.png"}
@@ -95,13 +95,13 @@ const Testimonials: React.FC = () => {
             </SwiperSlide>
             <SwiperSlide>
               <div>
-                <h1 className="text-2xl md:text-[32px] lg:leading-[48px] font-semibold text-darkblue">
+                <h1 className="text-xl sm:text-2xl md:text-[32px] text-center md:text-start lg:leading-[48px] font-semibold text-darkblue">
                   &#34;The best agency we’ve worked with so far. They understand
                   our product and are able to add new features with a great
                   focus.&#34;
                 </h1>
-                <div className="flex mt-14">
-                  <div className="flex gap-2.5">
+                <div className="flex mt-8 md:mt-14">
+                  <div className="flex gap-2 md:gap-2.5">
                     <div className="w-[52px] h-[52px] rounded-full overflow-hidden">
                       <Image
                         src={"/images/avatar.png"}
@@ -126,13 +126,13 @@ const Testimonials: React.FC = () => {
             <div className="absolute z-50 bottom-0 right-0 flex gap-2.5">
               <button
                 ref={prevRef}
-                className="text-darkblue/60 bg-white hover:bg-royalblue hover:text-white p-4 rounded-full transition-all duration-700 ease-in-out flex items-center justify-center"
+                className="text-darkblue/60 bg-white hover:bg-white/90 p-2 md:p-4 rounded-full transition-all duration-700 ease-in-out flex items-center justify-center"
               >
                 <FaChevronLeft className="text-xl" />
               </button>
               <button
                 ref={nextRef}
-                className="bg-royalblue text-white hover:bg-white hover:text-darkblue/60 p-4 rounded-full transition-all duration-700 ease-in-out flex items-center justify-center"
+                className="bg-royalblue text-white hover:bg-royalblue/90 p-2 md:p-4 rounded-full transition-all duration-700 ease-in-out flex items-center justify-center"
               >
                 <FaChevronRight className="text-xl" />
               </button>
