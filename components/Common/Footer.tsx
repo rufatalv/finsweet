@@ -4,10 +4,13 @@ import { FaTwitter, FaInstagram, FaLinkedin, FaFacebook } from "react-icons/fa";
 export default function Footer() {
   return (
     <footer className="flex flex-col">
-      <div id="up" className="bg-tintblue pt-24">
-        <div className="container flex gap-36">
-          <div className="flex flex-col max-w-lg w-full justify-between">
-            <div id="up" className="max-w-md text-white">
+      <div id="up" className="bg-tintblue pt-8 md:pt-12 lg:pt-24">
+        <div className="container flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-36">
+          <div className="flex flex-col lg:max-w-lg w-full justify-between">
+            <div
+              id="up"
+              className="max-w-md px-4 lg:px-0 pb-5 lg:pb-0 text-white"
+            >
               <Image
                 src="/images/footer-logo.svg"
                 width={160}
@@ -19,19 +22,30 @@ export default function Footer() {
                 online presence.
               </p>
             </div>
-            <div id="down" className="bg-yellow pl-8 py-4 flex gap-7">
+            <div
+              id="down"
+              className="bg-yellow px-4 lg:px-0 lg:pl-8 py-4 flex flex-col sm:flex-row gap-7"
+            >
               <div className="flex flex-col text-darkblue font-medium text-lg">
                 Email me at
-                <p className="text-base font-normal">contact@website.com</p>
+                <p className="text-base font-normal">
+                  <Link href={"mailto:contact@website.com"}>
+                    contact@website.com
+                  </Link>
+                </p>
               </div>
               <div className="flex flex-col text-darkblue font-medium text-lg">
                 Call us
-                <p className="text-base font-normal">0927 6277 28525</p>
+                <p className="text-base font-normal">
+                  <Link href={"tel:0927627728525"}>0927 6277 28525</Link>
+                </p>
               </div>
             </div>
           </div>
-          <div className="flex flex-col max-w-[399px]">
-            <h1 className="font-semibold text-white text-5xl">Lets Talk!</h1>
+          <div className="flex flex-col px-4 lg:px-0 max-w-[399px]">
+            <h1 className="font-semibold text-white text-[32px] lg:text-5xl">
+              Lets Talk!
+            </h1>
             <p className="opacity-80 text-grey font-light mt-6 mb-7">
               We are always open to discuss your project, improve your online
               presence and help with your UX/UI design challenges.
@@ -57,9 +71,9 @@ export default function Footer() {
         id="down"
         className="flex justify-between text-base font-medium text-darkblue"
       >
-        <div className="container py-8 flex justify-between">
+        <div className="container py-8 px-4 lg:px-0 flex flex-col gap-4 md:gap-0 md:flex-row justify-between">
           <p className="">Copyright 2022, Finsweet.com</p>
-          <ul className="flex gap-8 mr-16">
+          <ul className="flex flex-col md:flex-row gap-4 lg:gap-8 mr-16">
             <li>
               <Link href="/">Home</Link>
             </li>
