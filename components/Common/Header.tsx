@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { LiaBarsSolid } from "react-icons/lia";
 import { HiXMark } from "react-icons/hi2";
 import Button from "./Button";
+import { link } from "fs";
 
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -18,6 +19,12 @@ export default function Header() {
         setScroll(false);
       }
     }
+
+    document.querySelectorAll("ul li a").forEach((link) => {
+      link.addEventListener("click", () => {
+        setIsNavOpen(false);
+      });
+    });
 
     window.addEventListener("scroll", handleScroll);
 
@@ -35,19 +42,25 @@ export default function Header() {
           isNavOpen ? "bg-tintblue" : ""
         } justify-between`}
       >
-        <div>
+        <Link href={'/'}>
           <img src="/images/logo.svg" alt="logo" />
-        </div>
+        </Link>
         <ul
-          className={`flex flex-col md:flex-row gap-4 text-textgrey lg:gap-8 fixed lg:ml-auto lg:mr-12 md:static text-right md:text-start right-0 top-0 md:left-auto md:top-auto shadow-2xl md:shadow-none h-screen md:h-auto w-1/2 md:w-auto bg-tintblue md:bg-transparent p-5 pt-24 md:p-0 text-2xl md:text-base transition-transform duration-700 ${
+          className={`flex flex-col md:flex-row gap-4 text-textgrey lg:gap-8 fixed lg:ml-auto lg:mr-12 md:static text-right md:text-start right-0 top-0 md:left-auto md:top-auto shadow-2xl md:shadow-none h-screen md:h-auto w-1/2 md:w-auto bg-tintblue md:bg-transparent p-4 pt-4 md:p-0 text-2xl md:text-base transition-transform duration-700 ${
             isNavOpen
               ? "translate-x-0 md:translate-x-0"
               : "translate-x-full md:translate-x-0"
           }`}
         >
+          <div
+            onClick={handleNavOpen}
+            className={`ml-auto cursor-pointer opacity-0 transition-all duration-1000 ease-[cubic-bezier(0.95,0.05,0.795,0.035)] md:hidden ${isNavOpen ? 'opacity-100' : ''}`}
+          >
+            <HiXMark color="#fff" size={32} />
+          </div>
           <li>
             <Link
-              href="#"
+              href="/"
               className={`transition-all duration-700 ease-in-out hover:text-white ${
                 router.pathname == "/" ? "text-white" : ""
               }`}
@@ -57,7 +70,7 @@ export default function Header() {
           </li>
           <li>
             <Link
-              href="#"
+              href="/about"
               className={`transition-all duration-700 ease-in-out hover:text-white ${
                 router.pathname == "/about" ? "text-white" : ""
               }`}
@@ -97,7 +110,7 @@ export default function Header() {
           </li>
           <li>
             <Link
-              href="#"
+              href="/blog"
               className={`transition-all duration-400 ease-in-out hover:text-white ${
                 router.pathname == "/blog" ? "text-white" : ""
               }`}
@@ -106,10 +119,7 @@ export default function Header() {
             </Link>
           </li>
         </ul>
-        <div
-          onClick={handleNavOpen}
-          className="cursor-pointer relative z-10 md:hidden"
-        >
+        <div onClick={handleNavOpen} className="cursor-pointer relative z-10 md:hidden">
           {isNavOpen ? (
             <HiXMark color="#fff" size={32} />
           ) : (

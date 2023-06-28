@@ -6,11 +6,11 @@ interface ILayout {
 
 const Layout: React.FC<ILayout> = ({ children }) => {
   return (
-    <div>
+    <>
       <Header />
       {children}
-      <Footer />
-    </div>
+      {/* <Footer /> */}
+    </>
   );
 };
 

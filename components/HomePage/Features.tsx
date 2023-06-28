@@ -7,7 +7,7 @@ export default function Features() {
         <h4 className="text-base text-darkblue font-medium text-center mb-3">
           Features
         </h4>
-        <h2 className="text-darkblue text-[32px] leading-10 lg:leading-[64px] lg:text-5xl font-semibold text-center mb-12 max-w-[620px]">
+        <h2 className="text-darkblue text-2xl leading-8 md:text-[32px] md:leading-10 lg:leading-[64px] lg:text-5xl font-semibold text-center mb-12 max-w-[620px]">
           Design that solves problems, one product at a time
         </h2>
         <div className="flex gap-6 justify-center flex-wrap">
@@ -16,42 +16,42 @@ export default function Features() {
             text="Euismod faucibus turpis eu gravida mi. Pellentesque et velit aliquam sed faucib turpis eu gravida mi. Pellentesque et velit aliquam sed mi. "
             key={Math.random()}
           >
-            <FaPeopleGroup className="text-royalblue" size={32} />
+            <FaPeopleGroup size={32} />
           </FeaturesCard>
           <FeaturesCard
             heading="Uses Client First"
             text="Euismod faucibus turpis eu gravida mi. Pellentesque et velit aliquam sed faucib turpis eu gravida mi. Pellentesque et velit aliquam sed mi. "
             key={Math.random()}
           >
-            <FaCircleCheck className="text-royalblue" size={32} />
+            <FaCircleCheck size={32} />
           </FeaturesCard>
           <FeaturesCard
             heading="Uses Client First"
             text="Euismod faucibus turpis eu gravida mi. Pellentesque et velit aliquam sed faucib turpis eu gravida mi. Pellentesque et velit aliquam sed mi. "
             key={Math.random()}
           >
-            <FaPenRuler className="text-royalblue" size={32} />
+            <FaPenRuler size={32} />
           </FeaturesCard>
           <FeaturesCard
             heading="24/7 Support"
             text="Euismod faucibus turpis eu gravida mi. Pellentesque et velit aliquam sed faucib turpis eu gravida mi. Pellentesque et velit aliquam sed mi. "
             key={Math.random()}
           >
-            <FaPenRuler className="text-royalblue" size={32} />
+            <FaPenRuler size={32} />
           </FeaturesCard>
           <FeaturesCard
             heading="Quick Delivery"
             text="Euismod faucibus turpis eu gravida mi. Pellentesque et velit aliquam sed faucib turpis eu gravida mi. Pellentesque et velit aliquam sed mi. "
             key={Math.random()}
           >
-            <FaPenRuler className="text-royalblue" size={32} />
+            <FaPenRuler size={32} />
           </FeaturesCard>
           <FeaturesCard
             heading="Hands-on approach"
             text="Euismod faucibus turpis eu gravida mi. Pellentesque et velit aliquam sed faucib turpis eu gravida mi. Pellentesque et velit aliquam sed mi. "
             key={Math.random()}
           >
-            <FaPenRuler className="text-royalblue" size={32} />
+            <FaPenRuler size={32} />
           </FeaturesCard>
         </div>
       </div>

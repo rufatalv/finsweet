@@ -1,6 +1,6 @@
 "use client";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import { Navigation, Pagination } from "swiper";
+import { Navigation, Pagination, Autoplay } from "swiper";
 import "swiper/css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useRef, useState } from "react";
@@ -14,7 +14,7 @@ const Testimonials: React.FC = () => {
     <div className="bg-grey/50">
       <div className="container py-16 lg:py-32 px-4 lg:px-0 flex flex-col gap-12 lg:gap-0 lg:flex-row">
         <div className="lg:w-[30%] flex flex-col text-center md:text-start items-center gap-4">
-          <h1 className="text-[32px] lg:text-[38px] font-semibold text-darkblue">
+          <h1 className="text-3xl md:text-[32px] lg:text-[38px] font-semibold text-darkblue">
             What our clients say about us
           </h1>
           <p className="text-darkblue leading-7">
@@ -26,8 +26,12 @@ const Testimonials: React.FC = () => {
             spaceBetween={50}
             slidesPerView={1}
             onInit={() => setInit(true)}
+            speed={700}
+            modules={[Navigation, Pagination, Autoplay]}
             loop={true}
-            modules={[Navigation, Pagination]}
+            autoplay={{
+              delay: 2500,
+            }}
             navigation={{
               prevEl: prevRef.current,
               nextEl: nextRef.current,

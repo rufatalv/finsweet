@@ -32,6 +32,9 @@ module.exports = {
       animation: {
         "moving-right": "right 1s ease 100ms infinite alternate forwards",
       },
+      backgroundImage: {
+        contact: "url('/images/contact.jpg')",
+      },
       colors: {
         tintblue: "#1C1E53",
         darkblue: "#282938",
