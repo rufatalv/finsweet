@@ -5,6 +5,7 @@ import { LiaBarsSolid } from "react-icons/lia";
 import { HiXMark } from "react-icons/hi2";
 import Button from "./Button";
 import { link } from "fs";
+import Image from "next/image";
 
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -43,7 +44,7 @@ export default function Header() {
         } justify-between`}
       >
         <Link href={'/'}>
-          <img src="/images/logo.svg" alt="logo" />
+          <Image width={122} height={24} src="/images/logo.svg" alt="logo" />
         </Link>
         <ul
           className={`flex flex-col md:flex-row gap-4 text-textgrey lg:gap-8 fixed lg:ml-auto lg:mr-12 md:static text-right md:text-start right-0 top-0 md:left-auto md:top-auto shadow-2xl md:shadow-none h-screen md:h-auto w-1/2 md:w-auto bg-tintblue md:bg-transparent p-4 pt-4 md:p-0 text-2xl md:text-base transition-transform duration-700 ${

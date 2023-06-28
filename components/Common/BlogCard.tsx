@@ -26,7 +26,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
   return (
     <div className="flex flex-col gap-8 w-full xl:last:hidden">
       <div className="w-full h-[285px]">
-        <img alt="coverPhoto" className="h-full w-full object-cover" src={data.image.url} />
+        <Image alt="coverPhoto" width={405} height={285} className="h-full w-full object-cover" src={data.image.url} />
       </div>
       <div className="flex flex-col gap-4">
         <p className="text-darkblue text-sm md:text-base opacity-70 font-medium">
