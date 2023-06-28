@@ -9,7 +9,7 @@ const Layout: React.FC<ILayout> = ({ children }) => {
     <>
       <Header />
       {children}
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

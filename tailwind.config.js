@@ -34,6 +34,8 @@ module.exports = {
       },
       backgroundImage: {
         contact: "url('/images/contact.jpg')",
+        aboutinfo: "url('/images/aboutinfo.jpg')",
+        circleCard: "url('/images/circleCard.svg')",
       },
       colors: {
         tintblue: "#1C1E53",

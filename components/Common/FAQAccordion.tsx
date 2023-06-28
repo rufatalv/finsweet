@@ -33,7 +33,8 @@ const FAQAccordion: IFAQAccordion = ({ children }) => {
       <AccordionContext.Provider value={{ isOpen, toggleOpen }}>
         {children}
         <FiX
-          className={`transition-all text-darkblue text-3xl sm:text-2xl ${
+          onClick={toggleOpen}
+          className={`transition-all cursor-pointer text-darkblue text-3xl sm:text-2xl ${
             isOpen ? "" : "rotate-45"
           }`}
         />
@@ -50,7 +51,9 @@ const Body: React.FC<IFAQAccordionProps> = ({ children }) => {
 
 const Number: React.FC<IFAQAccordionProps> = ({ children }) => {
   return (
-    <div className="mr-3 sm:mr-8 md:mr-16 text-xl md:text-2xl text-royalblue font-medium">{children}</div>
+    <div className="mr-3 sm:mr-8 md:mr-16 text-xl md:text-2xl text-royalblue font-medium">
+      {children}
+    </div>
   );
 };
 
@@ -59,12 +62,14 @@ const Title: React.FC<IFAQAccordionProps> = ({ children }) => {
     AccordionContext
   ) as IAccordionContext;
   return (
-    <div className="cursor-pointer text-xl md:text-2xl text-darkblue font-medium" onClick={toggleOpen}>
+    <div
+      className="cursor-pointer text-xl md:text-2xl text-darkblue font-medium"
+      onClick={toggleOpen}
+    >
       {children}
     </div>
   );
 };
-
 
 const Text: React.FC<IFAQAccordionProps> = ({ children }) => {
   const { isOpen } = useContext(AccordionContext) as IAccordionContext;

@@ -81,7 +81,7 @@ export default function Header() {
           </li>
           <li>
             <Link
-              href="#"
+              href="/features"
               className={`transition-all duration-700 ease-in-out hover:text-white ${
                 router.pathname == "/features" ? "text-white" : ""
               }`}
@@ -91,7 +91,7 @@ export default function Header() {
           </li>
           <li>
             <Link
-              href="#"
+              href="/pricing"
               className={`transition-all duration-700 ease-in-out hover:text-white ${
                 router.pathname == "/pricing" ? "text-white" : ""
               }`}
@@ -101,7 +101,7 @@ export default function Header() {
           </li>
           <li>
             <Link
-              href="#"
+              href="/faq"
               className={`transition-all duration-700 ease-in-out hover:text-white ${
                 router.pathname == "/faq" ? "text-white" : ""
               }`}

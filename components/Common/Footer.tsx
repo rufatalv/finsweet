@@ -24,7 +24,7 @@ export default function Footer() {
             </div>
             <div
               id="down"
-              className="bg-yellow px-4 lg:px-0 lg:pl-8 py-4 flex flex-col sm:flex-row gap-7"
+              className="bg-yellow px-4 lg:px-0 lg:pl-8 py-4 flex flex-col sm:flex-row gap-2 md:gap-7"
             >
               <div className="flex flex-col text-darkblue font-medium text-base lg:text-lg">
                 Email me at

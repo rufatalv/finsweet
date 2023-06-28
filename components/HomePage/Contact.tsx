@@ -30,21 +30,21 @@ const Contact = () => {
               name="name"
               id="name"
               placeholder="Your Name"
-              className="py-[18px] pl-8 rounded-lg border-[1.5px] placeholder:text-sm placeholder:md:text-base bg-transparent w-full focus:outline-none border-[#ffffff] border-opacity-5"
+              className="py-[18px] pl-8 rounded-lg border-[1.5px] placeholder:text-sm text-white placeholder:text-white placeholder:md:text-base bg-transparent w-full focus:outline-none border-[#ffffff] border-opacity-5"
             />
             <input
               type="email"
               name="email"
               id="email"
               placeholder="Email"
-              className="py-[18px] pl-8 rounded-lg border-[1.5px] placeholder:text-sm placeholder:md:text-base bg-transparent w-full focus:outline-none border-[#ffffff] border-opacity-5"
+              className="py-[18px] pl-8 rounded-lg border-[1.5px] placeholder:text-sm text-white placeholder:text-white placeholder:md:text-base bg-transparent w-full focus:outline-none border-[#ffffff] border-opacity-5"
             />
             <input
               type="text"
               name="figma"
               id="figma"
               placeholder="Paste your Figma design URL"
-              className="py-[18px] pl-8 rounded-lg border-[1.5px] placeholder:text-sm placeholder:md:text-base bg-transparent w-full focus:outline-none border-[#ffffff] border-opacity-5"
+              className="py-[18px] pl-8 rounded-lg border-[1.5px] placeholder:text-sm text-white placeholder:text-white placeholder:md:text-base bg-transparent w-full focus:outline-none border-[#ffffff] border-opacity-5"
             />
             <Button
               size="lg"
