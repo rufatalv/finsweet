@@ -42,7 +42,7 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col px-4 lg:px-0 max-w-[399px]">
+          <div className="flex flex-col pt-4 md:pt-0 px-4 lg:px-0 max-w-[399px]">
             <h1 className="font-semibold text-white text-[32px] lg:text-5xl">
               Lets Talk!
             </h1>

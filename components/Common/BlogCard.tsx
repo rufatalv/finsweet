@@ -12,21 +12,32 @@ interface Post {
   createdAt: string;
   slug: string;
   id: number;
-  description: string;
   publishedAt: string;
   updatedAt: string;
   image: Image;
+  shortDescription: string;
 }
 
 interface BlogCardProps {
   data: Post;
+  isMain: boolean;
 }
 
-const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
+const BlogCard: React.FC<BlogCardProps> = ({ data, isMain }) => {
   return (
-    <div className="flex flex-col gap-8 w-full xl:last:hidden">
+    <div
+      className={`flex flex-col gap-8 w-full ${
+        isMain ? "" : "xl:last-of-type:hidden"
+      }`}
+    >
       <div className="w-full h-[285px]">
-        <Image alt="coverPhoto" width={405} height={285} className="h-full w-full object-cover" src={data.image.url} />
+        <Image
+          alt="coverPhoto"
+          width={405}
+          height={285}
+          className="h-full w-full object-cover"
+          src={data.image.url}
+        />
       </div>
       <div className="flex flex-col gap-4">
         <p className="text-darkblue text-sm md:text-base opacity-70 font-medium">
@@ -36,11 +47,11 @@ const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
           {data.title}
         </h1>
         <p className="text-darkblue opacity-70 text-sm md:text-base md:leading-7">
-          {data.description}
+          {data.shortDescription}
         </p>
       </div>
       <Link
-        href={data.slug}
+        href={`/blog/${data.slug}`}
         className="text-[#282938] flex gap-3 text-sm md:text-base items-center group font-medium"
       >
         Read More

@@ -18,11 +18,12 @@ interface Post {
   slug: string;
   id: number;
   description: string;
+  shortDescription: string;
   publishedAt: string;
   updatedAt: string;
   image: Image;
+  FeaturedPost: boolean;
 }
-
 
 export const graphcms = new GraphQLClient(
   "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/cljaggjro2abl01ue45ggesph/master"
@@ -39,16 +40,18 @@ const getPosts = async (): Promise<Post[]> => {
           url
         }
         slug
+        shortDescription
         description
         title
         updatedAt
+        featuredPost
       }
     }
   `;
 
   const { posts } = await graphcms.request<{ posts: Post[] }>(QUERY);
 
-  return posts;
+  return posts.slice(0, 4);
 };
 
 export async function getStaticProps() {
@@ -70,7 +73,7 @@ export default function Home({ posts }: { posts: Post[] }) {
       <Testimonials />
       <FAQ />
       <Contact />
-      <OurBlog data={posts} />
+      <OurBlog isMain={false} data={posts} />
     </>
   );
 }

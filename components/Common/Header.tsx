@@ -37,13 +37,13 @@ export default function Header() {
     setIsNavOpen(!isNavOpen);
   };
   return (
-    <div className="text-white bg-tintblue relative z-10 select-none">
+    <div className="text-white bg-tintblue relative z-50 select-none">
       <div
         className={`container px-4 lg:px-0 py-4 flex items-center ${
           isNavOpen ? "bg-tintblue" : ""
         } justify-between`}
       >
-        <Link href={'/'}>
+        <Link href={"/"}>
           <Image width={122} height={24} src="/images/logo.svg" alt="logo" />
         </Link>
         <ul
@@ -55,7 +55,9 @@ export default function Header() {
         >
           <div
             onClick={handleNavOpen}
-            className={`ml-auto cursor-pointer opacity-0 transition-all duration-1000 ease-[cubic-bezier(0.95,0.05,0.795,0.035)] md:hidden ${isNavOpen ? 'opacity-100' : ''}`}
+            className={`ml-auto cursor-pointer opacity-0 relative z-[5] transition-all duration-[2500] ease-[cubic-bezier(0.95,0.05,0.795,0.035)] md:hidden ${
+              isNavOpen ? "opacity-100" : ""
+            }`}
           >
             <HiXMark color="#fff" size={32} />
           </div>
@@ -119,8 +121,21 @@ export default function Header() {
               Blog
             </Link>
           </li>
+          <li>
+            <Link
+              href="/contacts"
+              className={`transition-all duration-400 ease-in-out md:hidden hover:text-white ${
+                router.pathname == "/contacts" ? "text-white" : ""
+              }`}
+            >
+              Contacts
+            </Link>
+          </li>
         </ul>
-        <div onClick={handleNavOpen} className="cursor-pointer relative z-10 md:hidden">
+        <div
+          onClick={handleNavOpen}
+          className={`cursor-pointer relative z-10 md:hidden`}
+        >
           {isNavOpen ? (
             <HiXMark color="#fff" size={32} />
           ) : (
@@ -128,6 +143,7 @@ export default function Header() {
           )}
         </div>
         <Button
+          onClick={() => router.push("/contacts")}
           size=""
           styles="border-[#F4F6FC33] hover:bg-yellow border-[1px] hidden lg:block"
         >

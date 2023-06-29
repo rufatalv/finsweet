@@ -17,7 +17,7 @@ const Button: React.FC<IButtonProps> = ({
 }) => {
   switch (size) {
     case "lg":
-      btnSize = "px-5 py-3 md:lg:px-14 lg:py-4";
+      btnSize = "px-6 py-3 md:lg:px-14 lg:py-4";
       break;
 
     default:
