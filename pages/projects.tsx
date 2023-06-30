@@ -1,60 +1,8 @@
 import ProjectsComponent from "@/components/ProjectsPage/ProjectsComponent";
-import { GraphQLClient, gql } from "graphql-request";
 import Link from "next/link";
 import { FaTwitter, FaInstagram, FaLinkedin, FaFacebook } from "react-icons/fa";
-import type { InferGetStaticPropsType, GetStaticProps } from "next";
-interface Image {
-  url: string;
-}
-
-interface Project {
-  title: string;
-  category: string;
-  description: string;
-  heroDescription: string;
-  shortDescription: string;
-  image: Image;
-  slug: string;
-  client: string;
-  createdAt: string;
-  service: string;
-  deliverable: string;
-  keywords: string;
-}
-
-export const graphcms = new GraphQLClient(
-  "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/cljaggjro2abl01ue45ggesph/master"
-);
-
-const getProjects = async (): Promise<Project[]> => {
-  const QUERY = gql`
-    query {
-      projects {
-        title
-        category
-        description
-        heroDescription
-        slug
-        shortDescription
-        image {
-          url
-        }
-        client
-        service
-        createdAt
-        deliverable
-        keywords
-        content {
-          html
-        }
-      }
-    }
-  `;
-
-  const { projects } = await graphcms.request<{ projects: Project[] }>(QUERY);
-
-  return projects;
-};
+import { Project, getProjects } from "@/graphcms";
+import Head from "next/head";
 
 export async function getStaticProps() {
   const projects = await getProjects();
@@ -69,6 +17,16 @@ export async function getStaticProps() {
 export default function Projects({ projects }: { projects: Project[] }) {
   return (
     <>
+      <Head>
+        <title> Finsweet | Projects</title>
+        <meta name="description" content="Finsweet website" />
+        <meta property="og:description" content="Finsweet website" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="Finsweet" />
+        <meta name="twitter:description" content="Finsweet website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="robots" content="index, follow" />
+      </Head>
       <div className="bg-grey">
         <div className="container flex flex-col px-4 lg:px-0 items-center py-24">
           <h4 className="text-base text-darkblue font-medium text-center mb-3">
@@ -98,7 +56,7 @@ export default function Projects({ projects }: { projects: Project[] }) {
           </div>
         </div>
       </div>
-      
+
       <ProjectsComponent data={projects} />
     </>
   );

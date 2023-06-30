@@ -1,26 +1,8 @@
+import { Project } from "@/graphcms";
 import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-
-interface Image {
-  url: string;
-}
-
-interface Project {
-  title: string;
-  category: string;
-  description: string;
-  heroDescription: string;
-  shortDescription: string;
-  createdAt: string;
-  image: Image;
-  slug: string;
-  client: string;
-  service: string;
-  deliverable: string;
-  keywords: string;
-}
 
 interface ProjectCardProps {
   data: Project;

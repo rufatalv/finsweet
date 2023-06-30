@@ -1,32 +1,11 @@
 import { Button } from "@/components/Common";
-import { GraphQLClient, gql } from "graphql-request";
+import { Project, graphcms } from "@/graphcms";
+import { gql } from "graphql-request";
 import { GetStaticPropsContext } from "next";
+import Head from "next/head";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
-export const graphcms = new GraphQLClient(
-  "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/cljaggjro2abl01ue45ggesph/master"
-);
-
-interface Image {
-  url: string;
-}
-interface Project {
-  title: string;
-  category: string;
-  description: string;
-  heroDescription: string;
-  shortDescription: string;
-  createdAt: string;
-  image: Image;
-  slug: string;
-  content: {
-    html: string;
-  };
-  client: string;
-  service: string;
-  deliverable: string;
-  keywords: string[];
-}
 interface ProjectCaseProps {
   project: Project;
 }
@@ -94,71 +73,93 @@ export async function getStaticPaths() {
 }
 
 export default function ProjectCase({ project }: ProjectCaseProps) {
+  const router = useRouter();
   return (
-    <div className="max-w-[1064px] mx-auto py-12 md:py-24 lg:py-32 px-4 xl:px-0">
-      <h4 className="text-darkblue font-medium">Web design and development</h4>
-      <h1 className="text-3xl md:text-[32px] max-w-2xl mb-2 lg:mb-4 lg:leading-[64px] mt-1.5 lg:mt-3 lg:text-5xl text-darkblue font-semibold">
-        Finsweet Design case studies
-      </h1>
-      <p className="max-w-[820px] mb-4 md:mb-8 lg:mb-12 text-darkblue font-medium text-sm lg:text-base opacity-70 lg:leading-7">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse.
-      </p>
-      <Image
-        src={project.image.url}
-        alt="Image"
-        className="w-full h-full object-cover mb-6 md:mb-8 lg:mb-12"
-        width={1280}
-        height={700}
-      />
-      <ul className="grid grid-cols-1 gap-4 md:flex md:justify-between py-4 md:py-6 lg:py-8 border-b mb-24 border-darkblue border-opacity-30">
-        <li className="flex flex-col gap-1">
-          <p className="text-darkblue opacity-80 font-medium">Client</p>
-          <h4 className="text-darkblue text-lg md:text-xl lg:text-2xl font-medium">
-            {project.client}
-          </h4>
-        </li>
-        <li className="flex flex-col gap-1">
-          <p className="text-darkblue opacity-80 font-medium">Service</p>
-          <h4 className="text-darkblue text-lg md:text-xl lg:text-2xl font-medium">
-            {project.service}
-          </h4>
-        </li>
-        <li className="flex flex-col gap-1">
-          <p className="text-darkblue opacity-80 font-medium">Deliverable</p>
-          <h4 className="text-darkblue text-lg md:text-xl lg:text-2xl font-medium">
-            {project.deliverable}
-          </h4>
-        </li>
-      </ul>
-      <div
-        className="w-full max-w-[840px] mx-auto mb-8 md:mb-16 lg:mb-28 prose prose-stone prose-text-start prose-headings:text-darkblue prose-h3:text-2xl md:prose-h3:text-[32px] lg:prose-h3:text-[38px] prose-p:text-sm prose-li:text-sm md:prose-li:text-base md:prose-p:text-base prose-p:text-darkblue prose-p:text-opacity-75 lg:prose-p:leading-7 prose-img:w-full"
-        dangerouslySetInnerHTML={{ __html: project.content.html }}
-      ></div>
-      <ul className="py-6 border-t mb-8 md:mb-16 lg:mb-28 border-b items-center border-darkblue border-opacity-20 grid grid-cols-2 gap-4 lg:flex lg:justify-between">
-        <li className="text-royalblue col-span-2 text-xl lg:text-2xl font-medium">Keywords</li>
-        {project.keywords.map((keyword: String, idx: number) => (
-          <li
-            className="text-darkblue opacity-70 font-medium text-base lg:text-lg"
-            key={idx}
-          >
-            {keyword}
-          </li>
-        ))}
-      </ul>
-      <div className="max-w-[845px] flex flex-col w-full mx-auto">
-        <h1 className="text-darkblue text-3xl md:text-[32px] lg:leading-[64px] font-semibold text-center w-full mx-auto lg:text-5xl">
-          Let&#39;s build something great together
+    <>
+      <Head>
+        <title> Finsweet | {project.title}</title>
+        <meta name="description" content="Finsweet website" />
+        <meta property="og:description" content="Finsweet website" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:title" content="Finsweet" />
+        <meta name="twitter:description" content="Finsweet website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="robots" content="index, follow" />
+      </Head>
+      <div className="max-w-[1064px] mx-auto py-12 md:py-24 lg:py-32 px-4 xl:px-0">
+        <h4 className="text-darkblue font-medium">
+          Web design and development
+        </h4>
+        <h1 className="text-3xl md:text-[32px] max-w-2xl mb-2 lg:mb-4 lg:leading-[64px] mt-1.5 lg:mt-3 lg:text-5xl text-darkblue font-semibold">
+          Finsweet Design case studies
         </h1>
-        <p className="max-w-[625px] mx-auto mt-5 mb-10 text-center text-darkblue opacity-70 font-medium lg:leading-7">
-          Nullam vitae purus at tortor mattis dapibus. Morbi purus est,
-          ultricies nec dolor sit amet, scelerisque cursus purus.
+        <p className="max-w-[820px] mb-4 md:mb-8 lg:mb-12 text-darkblue font-medium text-sm lg:text-base opacity-70 lg:leading-7">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse.
         </p>
-        <Button styles="bg-yellow text-darkblue hover:bg-darkblue hover:text-white mx-auto">Contact Us</Button>
+        <Image
+          src={project.image.url}
+          alt="Image"
+          className="w-full h-full object-cover mb-6 md:mb-8 lg:mb-12"
+          width={1280}
+          height={700}
+        />
+        <ul className="grid grid-cols-1 gap-4 md:flex md:justify-between py-4 md:py-6 lg:py-8 border-b mb-24 border-darkblue border-opacity-30">
+          <li className="flex flex-col gap-1">
+            <p className="text-darkblue opacity-80 font-medium">Client</p>
+            <h4 className="text-darkblue text-lg md:text-xl lg:text-2xl font-medium">
+              {project.client}
+            </h4>
+          </li>
+          <li className="flex flex-col gap-1">
+            <p className="text-darkblue opacity-80 font-medium">Service</p>
+            <h4 className="text-darkblue text-lg md:text-xl lg:text-2xl font-medium">
+              {project.service}
+            </h4>
+          </li>
+          <li className="flex flex-col gap-1">
+            <p className="text-darkblue opacity-80 font-medium">Deliverable</p>
+            <h4 className="text-darkblue text-lg md:text-xl lg:text-2xl font-medium">
+              {project.deliverable}
+            </h4>
+          </li>
+        </ul>
+        <div
+          className="w-full max-w-[840px] mx-auto mb-8 md:mb-16 lg:mb-28 prose prose-stone prose-text-start prose-headings:text-darkblue prose-h3:text-2xl md:prose-h3:text-[32px] lg:prose-h3:text-[38px] prose-p:text-sm prose-li:text-sm md:prose-li:text-base md:prose-p:text-base prose-p:text-darkblue prose-p:text-opacity-75 lg:prose-p:leading-7 prose-img:w-full"
+          dangerouslySetInnerHTML={{ __html: project.content.html }}
+        ></div>
+        <ul className="py-6 border-t mb-8 md:mb-16 lg:mb-28 border-b items-center border-darkblue border-opacity-20 grid grid-cols-2 gap-4 lg:flex lg:justify-between">
+          <li className="text-royalblue col-span-2 text-xl lg:text-2xl font-medium">
+            Keywords
+          </li>
+          {project.keywords.map((keyword: String, idx: number) => (
+            <li
+              className="text-darkblue opacity-70 font-medium text-base lg:text-lg"
+              key={idx}
+            >
+              {keyword}
+            </li>
+          ))}
+        </ul>
+        <div className="max-w-[845px] flex flex-col w-full mx-auto">
+          <h1 className="text-darkblue text-3xl md:text-[32px] lg:leading-[64px] font-semibold text-center w-full mx-auto lg:text-5xl">
+            Let&#39;s build something great together
+          </h1>
+          <p className="max-w-[625px] mx-auto mt-5 mb-10 text-center text-darkblue opacity-70 font-medium lg:leading-7">
+            Nullam vitae purus at tortor mattis dapibus. Morbi purus est,
+            ultricies nec dolor sit amet, scelerisque cursus purus.
+          </p>
+          <Button
+            styles="bg-yellow text-darkblue hover:bg-darkblue hover:text-white mx-auto"
+            onClick={() => router.push("/contacts")}
+          >
+            Contact Us
+          </Button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

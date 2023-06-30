@@ -1,23 +1,7 @@
+import { Project } from "@/graphcms";
 import Image from "next/image";
 import Link from "next/link";
 
-interface Image {
-  url: string;
-}
-
-interface Project {
-  title: string;
-  category: string;
-  description: string;
-  heroDescription: string;
-  shortDescription: string;
-  image: Image;
-  client: string;
-  slug: string;
-  service: string;
-  deliverable: string;
-  keywords: string;
-}
 
 interface OurBlogProps {
   data: Project[];

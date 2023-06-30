@@ -1,22 +1,8 @@
+import { Post } from "@/graphcms";
 import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-
-interface Image {
-  url: string;
-}
-
-interface Post {
-  title: string;
-  createdAt: string;
-  slug: string;
-  id: number;
-  publishedAt: string;
-  updatedAt: string;
-  image: Image;
-  shortDescription: string;
-}
 
 interface BlogCardProps {
   data: Post;

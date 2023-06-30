@@ -1,23 +1,6 @@
+import { Project } from "@/graphcms";
 import ProjectCard from "./ProjectCard";
 import { useState } from "react";
-interface Image {
-  url: string;
-}
-
-interface Project {
-  title: string;
-  category: string;
-  description: string;
-  heroDescription: string;
-  shortDescription: string;
-  createdAt: string;
-  image: Image;
-  slug: string;
-  client: string;
-  service: string;
-  deliverable: string;
-  keywords: string;
-}
 
 export default function ProjectsComponent({ data }: { data: Project[] }) {
   const [selectedCategory, setSelectedCategory] = useState("All");

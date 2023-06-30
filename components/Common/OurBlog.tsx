@@ -1,21 +1,8 @@
 import React from "react";
 import BlogCard from "./BlogCard";
+import { Post } from "@/graphcms";
 
-interface Image {
-  url: string;
-}
 
-interface Post {
-  title: string;
-  createdAt: string;
-  slug: string;
-  id: number;
-  description: string;
-  publishedAt: string;
-  updatedAt: string;
-  image: Image;
-  shortDescription: string;
-}
 
 interface OurBlogProps {
   data: Post[];
