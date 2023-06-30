@@ -5,7 +5,7 @@ import { Project, getProjects } from "@/graphcms";
 import Head from "next/head";
 
 export async function getStaticProps() {
-  const projects = await getProjects();
+  const projects = await getProjects(false);
   return {
     props: {
       projects,

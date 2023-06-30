@@ -42,7 +42,7 @@ export const graphcms = new GraphQLClient(
   "https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/cljaggjro2abl01ue45ggesph/master"
 );
 
-export const getProjects = async (): Promise<Project[]> => {
+export const getProjects = async (val: boolean): Promise<Project[]> => {
   const QUERY = gql`
     query {
       projects {
@@ -67,11 +67,12 @@ export const getProjects = async (): Promise<Project[]> => {
   `;
 
   const { projects } = await graphcms.request<{ projects: Project[] }>(QUERY);
-
-  return projects.slice(0, 3);
+  if (val === true) {
+    return projects.slice(0, 3);
+  } else return projects;
 };
 
-export const getPosts = async (): Promise<Post[]> => {
+export const getPosts = async (val: boolean): Promise<Post[]> => {
   const QUERY = gql`
     query {
       posts {
@@ -93,5 +94,7 @@ export const getPosts = async (): Promise<Post[]> => {
 
   const { posts } = await graphcms.request<{ posts: Post[] }>(QUERY);
 
-  return posts.slice(0, 4);
+  if (val === true) {
+    return posts.slice(0, 4);
+  } else return posts;
 };
