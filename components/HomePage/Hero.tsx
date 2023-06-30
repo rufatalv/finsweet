@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { Button } from "../Common";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function Hero() {
+  const router = useRouter();
   return (
     <div className="bg-tintblue">
       <div className="container px-4 lg:px-0 flex flex-col md:flex-row pt-16 md:pt-24 lg:pt-32 pb-12 md:pb-24 lg:pb-32  justify-between items-center">
@@ -17,6 +19,7 @@ export default function Hero() {
           <div className="gap-10 mb-12 md:mb-0 flex md:justify-start justify-center items-center">
             <Button
               size="lg"
+              onClick={() => router.push("/projects")}
               styles="bg-yellow text-tinttext text-sm sm:text-sm md:text-base lg:text-lg hover:bg-darkblue hover:text-white"
             >
               View our work

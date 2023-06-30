@@ -136,11 +136,7 @@ export default function Header() {
           onClick={handleNavOpen}
           className={`cursor-pointer relative z-10 md:hidden`}
         >
-          {isNavOpen ? (
-            <HiXMark color="#fff" size={32} />
-          ) : (
-            <LiaBarsSolid color="#fff" size={32} />
-          )}
+          <LiaBarsSolid color="#fff" className={`transition-all duration-200 ${isNavOpen ? 'opacity-0' : ''}`} size={32} />
         </div>
         <Button
           onClick={() => router.push("/contacts")}

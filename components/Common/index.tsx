@@ -6,3 +6,4 @@ export { default as FAQAccordion } from "./FAQAccordion";
 export { default as OurBlog } from "./OurBlog";
 export { default as BlogCard } from "./BlogCard";
 export { default as Benefits } from "./Benefits";
+export { default as ProjectsIntro } from "./ProjectsIntro";

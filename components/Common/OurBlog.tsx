@@ -23,7 +23,6 @@ interface OurBlogProps {
 }
 
 const OurBlog: React.FC<OurBlogProps> = ({ data, isMain }) => {
-  console.log(isMain)
   return (
     <div className="container px-4 lg:px-0 pb-32">
       <h1

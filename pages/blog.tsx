@@ -86,8 +86,8 @@ const Blog: React.FC<BlogProps> = ({ posts }) => {
             alt="poster"
             src={featuredPost.image.url}
             className="w-full h-full object-cover"
-            width={500}
-            height={300}
+            width={1280}
+            height={900}
           />
         </div>
         <p className="mt-12 text-darkblue opacity-70 max-w-3xl lg:leading-7">
